@@ -8,7 +8,7 @@ Pour l'instant il est possible de générer un élément de bibliographie à la 
 
 **Installation :**
 
- - Ajouter angular.js dans le dossier js/ ou remplacer 'js/angular.js' un cdn (ex: 'https://ajax.googleapis.com/ajax/libs/angularjs/1.3.5/angular.min.js') dans index.html.
+ - Ajouter angular.js (v.1.3.5 mini) dans le dossier js/ ou remplacer 'js/angular.js' un cdn (ex: 'https://ajax.googleapis.com/ajax/libs/angularjs/1.3.5/angular.min.js') dans index.html.
 
 **TODO :**
 
@@ -16,3 +16,4 @@ Pour l'instant il est possible de générer un élément de bibliographie à la 
  - Permettre l'ajout de plusieurs sources
  - Permettre une persistance des données
  - Améliorer le style
+ - Simplifier l'installation
