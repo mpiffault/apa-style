@@ -6,6 +6,10 @@ Projet AngularJS qui permettra à terme de générer une bibliographie à la nor
 
 Pour l'instant il est possible de générer un élément de bibliographie à la fois, et seulement pour les livres.
 
+**Installation :**
+
+ - Ajouter angular.js dans le dossier js/ ou remplacer 'js/angular.js' un cdn (ex: 'https://ajax.googleapis.com/ajax/libs/angularjs/1.3.5/angular.min.js') dans index.html.
+
 **TODO :**
 
  - Ajouter des types de sources différentes
