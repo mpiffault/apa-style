@@ -1,2 +1,5 @@
-js/angular.js
 *~
+sources.ods
+source-type-fields
+lib/**
+bower_components/**
