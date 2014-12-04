@@ -8,7 +8,8 @@ Pour l'instant il est possible de générer un élément de bibliographie à la 
 
 **Installation :**
 
- - Ajouter angular.js (v.1.3.5 mini) dans le dossier js/ ou remplacer 'js/angular.js' par un cdn ([ex](https://ajax.googleapis.com/ajax/libs/angularjs/1.3.5/angular.min.js)) dans index.html.
+ - Ajouter angular.js (v.1.3.5 mini) et bootstrap.js dans le dossier lib/js/
+ - Ajouter bootstrap.css dans le dossier lib/css/
 
 **TODO :**
 
