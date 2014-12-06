@@ -38,46 +38,26 @@
         	<span ng-if="editeur"><span ng-if="ville">:</span> {{editeur}}</span>
         </div>
         <div class="" role="form">
-          <ul>
-          	<li ng-repeat="auteur in auteurs" class="input-group">
-              <div class="form-group">
+        	<div ng-repeat="auteur in auteurs">
+            <div class="row">
+              <div class="form-group col-md-4">
                 <label for="auteur{{$index}}-prenom">Prenom</label>
-        	      <input class="form-control" type="text" class="form-control" id="auteur{{$index}}-prenom" ng-model="auteur.prenom" placeholder="Prenom"/>
+        	      <input type="text" class="form-control" id="auteur{{$index}}-prenom" ng-model="auteur.prenom" placeholder="Prenom"/>
               </div>
-              <div class="form-group">
+            </div>
+            <div class="row">
+              <div class="form-group col-md-4">
                 <label for="auteur{{$index}}-nom">Nom</label>
-          	    <input class="form-control" type="text" class="form-control" id="auteur{{$index}}-nom" ng-model="auteur.nom" placeholder="Nom"/>
+          	    <input type="text" class="form-control" id="auteur{{$index}}-nom" ng-model="auteur.nom" placeholder="Nom"/>
               </div>
-          	  <button ng-click="supprimerAuteur($index)">x</button>
-          	</li>
-          </ul>
-          <button ng-click="ajouterAuteur()">Ajouter un auteur</button>
+              <div class="form-group col-md-1">
+          	     <button ng-click="supprimerAuteur($index)" class="btn btn-danger btn-xs">x</button>
+              </div>
+            </div>
+        	</div>
           <div class="row">
             <div class="form-group col-md-4">
-              <label for="titre">Titre</label>
-              <input type="text" class="form-control" id="titre" ng-model="titre" placeholder="Titre"/>
-            </div>
-            <div class="form-group col-md-4">
-              <label for="volume">Volume</label>
-              <input type="text" class="form-control" id="volume" ng-model="volume" placeholder="Volume"/>
-            </div>
-            <div class="form-group col-md-4">
-              <label for="edition">Édition</label>
-              <input type="text" class="form-control" id="edition" ng-model="edition" placeholder="Édition"/>
-            </div>
-          </div>
-          <div class="row">
-            <div class="form-group col-md-4">
-              <label for="pages">Page(s)</label>
-              <input type="text" class="form-control" id="pages" ng-model="pages" placeholder="Page(s)"/>
-            </div>
-            <div class="form-group col-md-4">
-              <label for="ville">Ville</label>
-              <input type="text" class="form-control" id="ville" ng-model="ville" placeholder="Ville"/>
-            </div>
-            <div class="form-group col-md-4">
-              <label for="editeur">Éditeur</label>
-              <input type="text" class="form-control" id="editeur" ng-model="editeur" placeholder="Éditeur"/>
+              <button ng-click="ajouterAuteur()" class="btn btn-success">Ajouter un auteur</button>
             </div>
           </div>
           <div class="row">
@@ -89,6 +69,34 @@
               <label for="titreChapitre">Titre du chapitre</label>
               <input type="text" class="form-control" id="titreChapitre" ng-model="titreChapitre" placeholder="Titre du chapitre"/>
             </div>
+            <div class="form-group col-md-4">
+              <label for="titre">Titre</label>
+              <input type="text" class="form-control" id="titre" ng-model="titre" placeholder="Titre"/>
+            </div>
+          </div>
+          <div class="row">
+            <div class="form-group col-md-4">
+              <label for="edition">Édition</label>
+              <input type="text" class="form-control" id="edition" ng-model="edition" placeholder="Édition"/>
+            </div>
+            <div class="form-group col-md-4">
+              <label for="volume">Volume</label>
+              <input type="text" class="form-control" id="volume" ng-model="volume" placeholder="Volume"/>
+            </div>
+            <div class="form-group col-md-4">
+              <label for="pages">Page(s)</label>
+              <input type="text" class="form-control" id="pages" ng-model="pages" placeholder="Page(s)"/>
+            </div>
+          <div class="row">
+            <div class="form-group col-md-4">
+              <label for="ville">Ville</label>
+              <input type="text" class="form-control" id="ville" ng-model="ville" placeholder="Ville"/>
+            </div>
+            <div class="form-group col-md-4">
+              <label for="editeur">Éditeur</label>
+              <input type="text" class="form-control" id="editeur" ng-model="editeur" placeholder="Éditeur"/>
+            </div>
+          </div>
           </div>
           <div class="row">
             <div class="form-group col-md-8">
