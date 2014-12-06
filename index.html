@@ -3,10 +3,10 @@
   <head>
     <title>APA style</title>
     <script src="lib/js/angular.js"></script>
-    <script src="lib/js/bootstrap.js"></script>
+    <!--<script src="lib/js/bootstrap.js"></script>-->
     <script src="js/utils.js"></script>
     <script src="js/apastyle.js"></script>
-    <link rel="stylesheet" href="lib/css/style.css"/>
+    <link rel="stylesheet" href="lib/css/bootstrap.css"/>
     <link rel="stylesheet" href="css/style.css"/>
     <meta charset="utf-8"/>
   </head>
@@ -15,38 +15,41 @@
       <h1>APA style</h1>
       <hr>
       <div>
-	<span ng-repeat="auteur in auteurs"><span ng-if="!$first">,
-	    <span ng-if="$last"> &amp; </span>
-	  </span>
-	  <span>{{auteur.nom}}, {{auteur.prenom|initiales}}</span></span>
-	<span ng-if="annee">({{annee}})</span>
-	<span ng-if="titreChapitre"> {{titreChapitre}}. Dans</span>
-	<span> <em>{{titre}}</em></span>
-	<span ng-if="edition || volume || pages"> (</span>
-	<span ng-if="edition">{{edition}}e éd.<span ng-if="volume || pages">, </span></span>
-	<span ng-if="volume">Vol. {{volume}}<span ng-if="pages">, </span></span>
-	<span ng-if="pages">p. {{pages}}</span>
-	<span ng-if="edition || volume || pages">). </span>
-	<span ng-if="ville"> {{ville}}<span ng-if="!editeur">.</span></span>
-	<span ng-if="editeur"><span ng-if="ville">:</span> {{editeur}}</span>
+        <span ng-repeat="auteur in auteurs"><span ng-if="!$first">,
+	         <span ng-if="$last"> &amp; </span>
+	        </span>
+          <span>{{auteur.nom}}, {{auteur.prenom|initiales}}</span></span>
+          <span ng-if="annee">({{annee}})</span>
+        	<span ng-if="titreChapitre"> {{titreChapitre}}. Dans</span>
+        	<span> <em>{{titre}}</em></span>
+        	<span ng-if="edition || volume || pages"> (</span>
+        	<span ng-if="edition">{{edition}}e éd.<span ng-if="volume || pages">, </span></span>
+        	<span ng-if="volume">Vol. {{volume}}<span ng-if="pages">, </span></span>
+        	<span ng-if="pages">p. {{pages}}</span>
+        	<span ng-if="edition || volume || pages">). </span>
+        	<span ng-if="ville"> {{ville}}<span ng-if="!editeur">.</span></span>
+        	<span ng-if="editeur"><span ng-if="ville">:</span> {{editeur}}</span>
       </div>
-      <ul>
-	<li ng-repeat="auteur in auteurs">
-	  <input type="text" ng-model="auteur.prenom" placeholder="Prenom"/>
-	  <input type="text" ng-model="auteur.nom" placeholder="Nom"/>
-	  <button ng-click="supprimerAuteur($index)">x</button>
-	</li>
-      </ul>
-      <button ng-click="ajouterAuteur()">Ajouter un auteur</button>
-      <input type="text" ng-model="titre" placeholder="Titre"/>
-      <input type="text" ng-model="volume" placeholder="Volume"/>
-      <input type="text" ng-model="edition" placeholder="Édition"/>
-      <input type="text" ng-model="pages" placeholder="Page(s)"/>
-      <input type="text" ng-model="ville" placeholder="Ville"/>
-      <input type="text" ng-model="editeur" placeholder="Éditeur"/>
-      <input type="text" ng-model="annee" placeholder="Année"/>
-      <input type="text" ng-model="titreChapitre" placeholder="Titre du chapitre"/>
-      <textarea type="text" ng-model="annotations" placeholder="Annotations"></textarea>
+      <div>
+        <ul>
+        	<li ng-repeat="auteur in auteurs" class="input-group">
+        	  <input type="text" ng-model="auteur.prenom" placeholder="Prenom"/>
+        	  <input type="text" ng-model="auteur.nom" placeholder="Nom"/>
+
+        	  <button ng-click="supprimerAuteur($index)">x</button>
+        	</li>
+        </ul>
+        <button ng-click="ajouterAuteur()">Ajouter un auteur</button>
+        <input type="text" ng-model="titre" placeholder="Titre"/>
+        <input type="text" ng-model="volume" placeholder="Volume"/>
+        <input type="text" ng-model="edition" placeholder="Édition"/>
+        <input type="text" ng-model="pages" placeholder="Page(s)"/>
+        <input type="text" ng-model="ville" placeholder="Ville"/>
+        <input type="text" ng-model="editeur" placeholder="Éditeur"/>
+        <input type="text" ng-model="annee" placeholder="Année"/>
+        <input type="text" ng-model="titreChapitre" placeholder="Titre du chapitre"/>
+        <textarea type="text" ng-model="annotations" placeholder="Annotations"></textarea>
+      </div>
     </div>
   </body>
 </html>
