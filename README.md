@@ -6,6 +6,8 @@ Projet [AngularJS](https://angularjs.org) qui permettra à terme de générer un
 
 Pour l'instant il est possible de générer un élément de bibliographie à la fois, et seulement pour les livres.
 
+Un [exemple](http://rouage.fr/apa-style) de la page en question.
+
 **Dépendances :**
 
  - AngularJs (v.1.3.5 mini)
