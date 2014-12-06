@@ -6,15 +6,16 @@ Projet [AngularJS](https://angularjs.org) qui permettra à terme de générer un
 
 Pour l'instant il est possible de générer un élément de bibliographie à la fois, et seulement pour les livres.
 
-**Installation :**
+**Dépendances :**
 
- - Ajouter angular.js (v.1.3.5 mini) et bootstrap.js dans le dossier lib/js/
- - Ajouter bootstrap.css dans le dossier lib/css/
+ - AngularJs (v.1.3.5 mini)
+ - bootstrap 3
 
-**TODO :**
+À installer dans leur dossiers respectifs dans lib/
+
+**Todo :**
 
  - Ajouter des types de sources différentes
  - Permettre l'ajout de plusieurs sources
  - Permettre une persistance des données
- - Améliorer le style
  - Simplifier l'installation
