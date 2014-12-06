@@ -15,27 +15,29 @@
       <div id="page-header" class="page-header">
         <h1>APA style</h1>
       </div>
-      <div class="jumbotron">
-        <div class="apa-line">
-          <span ng-repeat="auteur in auteurs">
-            <span ng-if="!$first">,
-  	         <span ng-if="$last"> &amp; </span>
-  	        </span>
-            <span>
-              <span ng-if="auteur.nom">{{auteur.nom}},</span>
-              <span ng-if="auteur.prenom"> {{auteur.prenom|initiales}}</span>
+      <div class="well bg-info">
+        <div class="apa-line panel">
+          <div class="panel-body">
+            <span ng-repeat="auteur in auteurs">
+              <span ng-if="!$first">,
+    	         <span ng-if="$last"> &amp; </span>
+    	        </span>
+              <span>
+                <span ng-if="auteur.nom">{{auteur.nom}},</span>
+                <span ng-if="auteur.prenom"> {{auteur.prenom|initiales}}</span>
+              </span>
             </span>
-          </span>
-          <span ng-if="annee">({{annee}})</span>
-        	<span ng-if="titreChapitre"> {{titreChapitre}}.<span ng-if="titreChapitre && titre"> Dans</span></span>
-        	<span ng-if="titre"> <em>{{titre}}</em></span>
-        	<span ng-if="edition || volume || pages"> (</span>
-        	<span ng-if="edition">{{edition}}e éd.<span ng-if="volume || pages">, </span></span>
-        	<span ng-if="volume">Vol. {{volume}}<span ng-if="pages">, </span></span>
-        	<span ng-if="pages">p. {{pages}}</span>
-        	<span ng-if="edition || volume || pages">). </span>
-        	<span ng-if="ville"> {{ville}}<span ng-if="!editeur">.</span></span>
-        	<span ng-if="editeur"><span ng-if="ville">:</span> {{editeur}}</span>
+            <span ng-if="annee">({{annee}})</span>
+          	<span ng-if="titreChapitre"> {{titreChapitre}}.<span ng-if="titreChapitre && titre"> Dans</span></span>
+          	<span ng-if="titre"> <em>{{titre}}</em></span>
+          	<span ng-if="edition || volume || pages"> (</span>
+          	<span ng-if="edition">{{edition}}e éd.<span ng-if="volume || pages">, </span></span>
+          	<span ng-if="volume">Vol. {{volume}}<span ng-if="pages">, </span></span>
+          	<span ng-if="pages">p. {{pages}}</span>
+          	<span ng-if="edition || volume || pages">). </span>
+          	<span ng-if="ville"> {{ville}}<span ng-if="!editeur">.</span></span>
+          	<span ng-if="editeur"><span ng-if="ville">:</span> {{editeur}}</span>
+          </div>
         </div>
         <div class="" role="form">
         	<div ng-repeat="auteur in auteurs">
