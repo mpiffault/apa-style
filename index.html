@@ -11,17 +11,24 @@
     <meta charset="utf-8"/>
   </head>
   <body>
-    <div ng-controller="ApaController">
-      <h1>APA style</h1>
-      <hr>
-      <div>
-        <span ng-repeat="auteur in auteurs"><span ng-if="!$first">,
-	         <span ng-if="$last"> &amp; </span>
-	        </span>
-          <span>{{auteur.nom}}, {{auteur.prenom|initiales}}</span></span>
+    <div ng-controller="ApaController" class="container">
+      <div id="page-header" class="page-header">
+        <h1>APA style</h1>
+      </div>
+      <div class="jumbotron">
+        <div class="apa-line">
+          <span ng-repeat="auteur in auteurs">
+            <span ng-if="!$first">,
+  	         <span ng-if="$last"> &amp; </span>
+  	        </span>
+            <span>
+              <span ng-if="auteur.nom">{{auteur.nom}},</span>
+              <span ng-if="auteur.prenom"> {{auteur.prenom|initiales}}</span>
+            </span>
+          </span>
           <span ng-if="annee">({{annee}})</span>
-        	<span ng-if="titreChapitre"> {{titreChapitre}}. Dans</span>
-        	<span> <em>{{titre}}</em></span>
+        	<span ng-if="titreChapitre"> {{titreChapitre}}.<span ng-if="titreChapitre && titre"> Dans</span></span>
+        	<span ng-if="titre"> <em>{{titre}}</em></span>
         	<span ng-if="edition || volume || pages"> (</span>
         	<span ng-if="edition">{{edition}}e éd.<span ng-if="volume || pages">, </span></span>
         	<span ng-if="volume">Vol. {{volume}}<span ng-if="pages">, </span></span>
@@ -29,26 +36,67 @@
         	<span ng-if="edition || volume || pages">). </span>
         	<span ng-if="ville"> {{ville}}<span ng-if="!editeur">.</span></span>
         	<span ng-if="editeur"><span ng-if="ville">:</span> {{editeur}}</span>
-      </div>
-      <div>
-        <ul>
-        	<li ng-repeat="auteur in auteurs" class="input-group">
-        	  <input type="text" ng-model="auteur.prenom" placeholder="Prenom"/>
-        	  <input type="text" ng-model="auteur.nom" placeholder="Nom"/>
-
-        	  <button ng-click="supprimerAuteur($index)">x</button>
-        	</li>
-        </ul>
-        <button ng-click="ajouterAuteur()">Ajouter un auteur</button>
-        <input type="text" ng-model="titre" placeholder="Titre"/>
-        <input type="text" ng-model="volume" placeholder="Volume"/>
-        <input type="text" ng-model="edition" placeholder="Édition"/>
-        <input type="text" ng-model="pages" placeholder="Page(s)"/>
-        <input type="text" ng-model="ville" placeholder="Ville"/>
-        <input type="text" ng-model="editeur" placeholder="Éditeur"/>
-        <input type="text" ng-model="annee" placeholder="Année"/>
-        <input type="text" ng-model="titreChapitre" placeholder="Titre du chapitre"/>
-        <textarea type="text" ng-model="annotations" placeholder="Annotations"></textarea>
+        </div>
+        <div class="" role="form">
+          <ul>
+          	<li ng-repeat="auteur in auteurs" class="input-group">
+              <div class="form-group">
+                <label for="auteur{{$index}}-prenom">Prenom</label>
+        	      <input class="form-control" type="text" class="form-control" id="auteur{{$index}}-prenom" ng-model="auteur.prenom" placeholder="Prenom"/>
+              </div>
+              <div class="form-group">
+                <label for="auteur{{$index}}-nom">Nom</label>
+          	    <input class="form-control" type="text" class="form-control" id="auteur{{$index}}-nom" ng-model="auteur.nom" placeholder="Nom"/>
+              </div>
+          	  <button ng-click="supprimerAuteur($index)">x</button>
+          	</li>
+          </ul>
+          <button ng-click="ajouterAuteur()">Ajouter un auteur</button>
+          <div class="row">
+            <div class="form-group col-md-4">
+              <label for="titre">Titre</label>
+              <input type="text" class="form-control" id="titre" ng-model="titre" placeholder="Titre"/>
+            </div>
+            <div class="form-group col-md-4">
+              <label for="volume">Volume</label>
+              <input type="text" class="form-control" id="volume" ng-model="volume" placeholder="Volume"/>
+            </div>
+            <div class="form-group col-md-4">
+              <label for="edition">Édition</label>
+              <input type="text" class="form-control" id="edition" ng-model="edition" placeholder="Édition"/>
+            </div>
+          </div>
+          <div class="row">
+            <div class="form-group col-md-4">
+              <label for="pages">Page(s)</label>
+              <input type="text" class="form-control" id="pages" ng-model="pages" placeholder="Page(s)"/>
+            </div>
+            <div class="form-group col-md-4">
+              <label for="ville">Ville</label>
+              <input type="text" class="form-control" id="ville" ng-model="ville" placeholder="Ville"/>
+            </div>
+            <div class="form-group col-md-4">
+              <label for="editeur">Éditeur</label>
+              <input type="text" class="form-control" id="editeur" ng-model="editeur" placeholder="Éditeur"/>
+            </div>
+          </div>
+          <div class="row">
+            <div class="form-group col-md-4">
+              <label for="annee">Année</label>
+              <input type="text" class="form-control" id="annee" ng-model="annee" placeholder="Année"/>
+            </div>
+            <div class="form-group col-md-4">
+              <label for="titreChapitre">Titre du chapitre</label>
+              <input type="text" class="form-control" id="titreChapitre" ng-model="titreChapitre" placeholder="Titre du chapitre"/>
+            </div>
+          </div>
+          <div class="row">
+            <div class="form-group col-md-8">
+              <label for="annotations">Annotations</label>
+              <textarea type="text" class="form-control" id="annotations" ng-model="annotations" placeholder="Annotations"></textarea>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </body>
