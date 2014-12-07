@@ -5,108 +5,62 @@
     <script src="lib/js/angular.js"></script>
     <!--<script src="lib/js/bootstrap.js"></script>-->
     <script src="js/utils.js"></script>
+    <script src="js/apa-types.js"></script>
     <script src="js/apastyle.js"></script>
+    <script src="js/directives.js"></script>
     <link rel="stylesheet" href="lib/css/bootstrap.css"/>
     <link rel="stylesheet" href="css/style.css"/>
     <meta charset="utf-8"/>
   </head>
   <body>
-    <div ng-controller="ApaController" class="container">
+    <div ng-controller="ApaCtrl" class="container">
       <div id="page-header" class="page-header">
         <h1>APA style</h1>
       </div>
-      <div class="well bg-info" ng-init="collapse=false;">
-        <div class="apa-line panel">
-          <div class="panel-body">
-            <span ng-repeat="auteur in auteurs">
-              <span ng-if="!$first">,
-    	         <span ng-if="$last"> &amp; </span>
-    	        </span>
-              <span>
-                <span ng-if="auteur.nom">{{auteur.nom}},</span>
-                <span ng-if="auteur.prenom"> {{auteur.prenom|initiales}}</span>
-              </span>
-            </span>
-            <span ng-if="annee">({{annee}})</span>
-          	<span ng-if="titreChapitre"> {{titreChapitre}}.<span ng-if="titreChapitre && titre"> Dans</span></span>
-          	<span ng-if="titre"> <em>{{titre}}</em></span>
-          	<span ng-if="edition || volume || pages"> (</span>
-          	<span ng-if="edition">{{edition}}e éd.<span ng-if="volume || pages">, </span></span>
-          	<span ng-if="volume">Vol. {{volume}}<span ng-if="pages">, </span></span>
-          	<span ng-if="pages">p. {{pages}}</span>
-          	<span ng-if="edition || volume || pages">). </span>
-          	<span ng-if="ville"> {{ville}}<span ng-if="!editeur">.</span></span>
-          	<span ng-if="editeur"><span ng-if="ville">:</span> {{editeur}}</span>
-            <button ng-click="collapse=!collapse" class="glyphicon glyphicon-pencil btn btn-primary pull-right"></button>
+      <div class="well bg-info" ng-repeat="source in bibliography.sources">
+        <div class="row">
+          <div class="col-md-2">
+            <label for="type-select-{{$index}}">Type</label>
+            <select id="type-select-{{$index}}" ng-model="source.sourcetype" class="form-control">
+              <option value="book">Livre</option>
+              <option value="journal">Revue spécialisée</option>
+              <option value="magazine">Magazine</option>
+              <option value="website">Site web</option>
+              <option value="newspaper">Quotidien</option>
+              <option value="film">Film</option>
+            </select>
           </div>
         </div>
-        <div class="" role="form" ng-hide="collapse">
-        	<div ng-repeat="auteur in auteurs">
-            <div class="row">
-              <div class="form-group col-md-4">
-                <label for="auteur{{$index}}-prenom">Prénom</label>
-        	      <input type="text" class="form-control" id="auteur{{$index}}-prenom" ng-model="auteur.prenom" placeholder="Entrez ici le prénom de l'auteur {{$index + 1}}"/>
-              </div>
-            </div>
-            <div class="row">
-              <div class="form-group col-md-4">
-                <label for="auteur{{$index}}-nom">Nom</label>
-          	    <input type="text" class="form-control" id="auteur{{$index}}-nom" ng-model="auteur.nom" placeholder="Entrez ici le nom de l'auteur {{$index + 1}}"/>
-              </div>
-              <div class="form-group col-md-1">
-          	     <button ng-click="supprimerAuteur($index)" class="btn btn-danger btn-xs"><span class="glyphicon glyphicon-remove"></span></button>
-              </div>
-            </div>
-        	</div>
-          <div class="row">
-            <div class="form-group col-md-4">
-              <button ng-click="ajouterAuteur()" class="btn btn-success">Ajouter un auteur</button>
-            </div>
+        <!-- <pre>{{source|json}}</pre> -->
+        <div ng-switch="source.sourcetype">
+          <div ng-switch-when="book">
+            <book></book>
           </div>
-          <div class="row">
-            <div class="form-group col-md-4">
-              <label for="annee">Année</label>
-              <input type="text" class="form-control" id="annee" ng-model="annee" placeholder="Entrez ici l'année de parution"/>
-            </div>
-            <div class="form-group col-md-4">
-              <label for="titreChapitre">Titre du chapitre</label>
-              <input type="text" class="form-control" id="titreChapitre" ng-model="titreChapitre" placeholder="Entrez ici le titre du chapitre"/>
-            </div>
-            <div class="form-group col-md-4">
-              <label for="titre">Titre</label>
-              <input type="text" class="form-control" id="titre" ng-model="titre" placeholder="Entrez ici titre du livre"/>
-            </div>
+          <div ng-switch-when="journal">
+            <journal></journal>
           </div>
-          <div class="row">
-            <div class="form-group col-md-4">
-              <label for="edition">Édition</label>
-              <input type="text" class="form-control" id="edition" ng-model="edition" placeholder="Entrez ici le numéro de l'édition"/>
-            </div>
-            <div class="form-group col-md-4">
-              <label for="volume">Volume</label>
-              <input type="text" class="form-control" id="volume" ng-model="volume" placeholder="Entrez ici le numéro du volume"/>
-            </div>
-            <div class="form-group col-md-4">
-              <label for="pages">Page(s)</label>
-              <input type="text" class="form-control" id="pages" ng-model="pages" placeholder="Entrez ici le numéro de la ou des Page(s)"/>
-            </div>
+          <div ng-switch-when="magazine">
+            <magazine></magazine>
           </div>
-          <div class="row">
-            <div class="form-group col-md-4">
-              <label for="ville">Ville</label>
-              <input type="text" class="form-control" id="ville" ng-model="ville" placeholder="Entrez ici la ville"/>
-            </div>
-            <div class="form-group col-md-4">
-              <label for="editeur">Éditeur</label>
-              <input type="text" class="form-control" id="editeur" ng-model="editeur" placeholder="Entrez ici le nom de l'éditeur"/>
-            </div>
+          <div ng-switch-when="website">
+            <website></website>
           </div>
-          <div class="row">
-            <div class="form-group col-md-8">
-              <label for="annotations">Annotations</label>
-              <textarea type="text" class="form-control" id="annotations" ng-model="annotations" placeholder="Annotations"></textarea>
-            </div>
+          <div ng-switch-when="newspaper">
+            <newspaper></newspaper>
           </div>
+          <div ng-switch-when="film">
+            <film></film>
+          </div>
+          <div ng-switch-default>
+            <p>
+              Une erreur est survenue
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="form-group col-md-4">
+          <button ng-click="addSource()" class="btn btn-success">Ajouter une source</button>
         </div>
       </div>
     </div>

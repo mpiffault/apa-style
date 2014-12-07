@@ -1,16 +1,19 @@
 var apaStyle = angular.module('apaStyle', ['filtres']);
 
-apaStyle.controller('ApaController', ['$scope', function($scope) {
-	$scope.auteurs = [
-	    {prenom:'', nom:''}];
-	$scope.ajouterAuteur = function () {
-	    $scope.auteurs.push({prenom:'', nom:''});
-	}
+apaStyle.controller('ApaCtrl', ['$scope', function($scope) {
+	$scope.bibliography = {
+		title: "",
+		sources: [new ApaType()]
+	};
 
-	$scope.supprimerAuteur = function (id) {
-	    $scope.auteurs.remove(id);
-	}
-}]);
+	$scope.addSource = function () {
+		$scope.bibliography.sources.push(new ApaType());
+	};
+
+	$scope.removeSource = function(id) {
+		$scope.bibliography.sources.remove(id);
+	};
+}])
 
 var filtres = angular.module('filtres', []);
 filtres.filter('initiales', function() {
