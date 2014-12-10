@@ -1,0 +1,66 @@
+<div ng-repeat="contributor in source.contributors">
+  <div class="row">
+    <div class="form-group col-md-4">
+      <label for="contributor{{$index}}-prenom" class="required">Prénom</label>
+      <input type="text" class="form-control" id="contributor{{$index}}-prenom" ng-model="contributor.firstName" placeholder="Entrez ici le prénom de l'auteur {{$index + 1}}"/>
+    </div>
+  </div>
+  <div class="row">
+    <div class="form-group col-md-4">
+      <label for="contributor{{$index}}-nom" class="required">Nom</label>
+      <input type="text" class="form-control" id="contributor{{$index}}-nom" ng-model="contributor.lastName" placeholder="Entrez ici le nom de l'auteur {{$index + 1}}"/>
+    </div>
+    <div class="form-group col-md-1">
+      <button ng-click="source.removeAuthor($index)" class="btn btn-danger btn-xs"><span class="glyphicon glyphicon-remove"></span></button>
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="form-group col-md-4">
+    <button ng-click="source.addAuthor()" class="btn btn-success">Ajouter un auteur</button>
+  </div>
+</div>
+<div class="row">
+  <div class="form-group col-md-4">
+    <label for="annee" class="required">Année</label>
+    <input type="text" class="form-control" id="annee" ng-model="source.year" placeholder="Entrez ici l'année de parution"/>
+  </div>
+  <div class="form-group col-md-4">
+    <label for="secondaryTitle">Titre du chapitre</label>
+    <input type="text" class="form-control" id="secondaryTitle" ng-model="source.secondaryTitle" placeholder="Entrez ici le titre du chapitre"/>
+  </div>
+  <div class="form-group col-md-4">
+    <label for="primaryTitle" class="required">Titre</label>
+    <input type="text" class="form-control" id="primaryTitle" ng-model="source.primaryTitle" placeholder="Entrez ici titre du livre"/>
+  </div>
+</div>
+<div class="row">
+  <div class="form-group col-md-4">
+    <label for="edition">Édition</label>
+    <input type="text" class="form-control" id="edition" ng-model="source.edition" placeholder="Entrez ici le numéro de l'édition"/>
+  </div>
+  <div class="form-group col-md-4">
+    <label for="volume">Volume</label>
+    <input type="text" class="form-control" id="volume" ng-model="source.volume" placeholder="Entrez ici le numéro du volume"/>
+  </div>
+  <div class="form-group col-md-4">
+    <label for="pages">Page(s)</label>
+    <input type="text" class="form-control" id="pages" ng-model="source.pages" placeholder="Entrez ici le numéro de la ou des Page(s)"/>
+  </div>
+</div>
+<div class="row">
+  <div class="form-group col-md-4">
+    <label for="city" class="required">Lieu de publication</label>
+    <input type="text" class="form-control" id="city" ng-model="source.city" placeholder="Ville, Pays"/>
+  </div>
+  <div class="form-group col-md-4">
+    <label for="editeur" class="required">Maison d'édition</label>
+    <input type="text" class="form-control" id="editeur" ng-model="source.editeur" placeholder="Entrez ici le nom de l'éditeur"/>
+  </div>
+</div>
+<div class="row">
+  <div class="form-group col-md-8">
+    <label for="annotations">Annotations</label>
+    <textarea type="text" class="form-control" id="annotations" ng-model="source.annotations" placeholder="Annotations"></textarea>
+  </div>
+</div>

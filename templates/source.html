@@ -1,0 +1,57 @@
+<div class="apa-line panel" ng-init="collapse=true;">
+  <div class="panel-body">
+    <div ng-switch="sourceType">
+      <div ng-switch-when="book">
+        <source-generation type-template="book"></source-generation>
+      </div>
+      <div ng-switch-when="journal">
+        <source-generation type-template="journal"></source-generation>
+      </div>
+      <div ng-switch-when="magazine">
+        <source-generation type-template="magazine"></source-generation>
+      </div>
+      <div ng-switch-when="website">
+        <source-generation type-template="website"></source-generation>
+      </div>
+      <div ng-switch-when="newspaper">
+        <source-generation type-template="newspaper"></source-generation>
+      </div>
+      <div ng-switch-when="film">
+        <source-generation type-template="film"></source-generation>
+      </div>
+      <div ng-switch-default>
+        <p>
+          Une erreur est survenue
+        </p>
+      </div>
+    </div>
+    <button ng-click="collapse=!collapse" class="glyphicon glyphicon-pencil btn btn-primary pull-right"></button>
+  </div>
+</div>
+<div role="form" ng-hide="collapse">
+  <div ng-switch="sourceType">
+    <div ng-switch-when="book">
+      <source-form type-template="book"></source-form>
+    </div>
+    <div ng-switch-when="journal">
+      <source-form type-template="journal"></source-form>
+    </div>
+    <div ng-switch-when="magazine">
+      <source-form type-template="magazine"></source-form>
+    </div>
+    <div ng-switch-when="website">
+      <source-form type-template="website"></source-form>
+    </div>
+    <div ng-switch-when="newspaper">
+      <source-form type-template="newspaper"></source-form>
+    </div>
+    <div ng-switch-when="film">
+      <source-form type-template="film"></source-form>
+    </div>
+    <div ng-switch-default>
+      <p>
+        Une erreur est survenue
+      </p>
+    </div>
+  </div>
+</div>

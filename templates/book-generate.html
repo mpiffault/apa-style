@@ -1,0 +1,19 @@
+<span ng-repeat="contributor in source.contributors">
+  <span ng-if="!$first">,
+    <span ng-if="$last"> et </span>
+  </span>
+  <span>
+    <span ng-if="contributor.lastName">{{contributor.lastName}},</span>
+    <span ng-if="contributor.firstName"> {{contributor.firstName|initiales}}</span>
+  </span>
+</span>
+<span ng-if="source.year">({{source.year}})</span>
+<span ng-if="source.secondaryTitle"> {{source.secondaryTitle}}.<span ng-if="source.secondaryTitle && source.primaryTitle"> Dans</span></span>
+<span ng-if="source.primaryTitle"> <em>{{source.primaryTitle}}</em></span>
+<span ng-if="source.edition || source.volume || source.pages"> (</span>
+<span ng-if="source.edition">{{source.edition}}e éd.<span ng-if="source.volume || source.pages">, </span></span>
+<span ng-if="source.volume">vol. {{source.volume}}<span ng-if="source.pages">, </span></span>
+<span ng-if="source.pages">p. {{source.pages}}</span>
+<span ng-if="source.edition || source.volume || source.pages">). </span>
+<span ng-if="source.city"> {{source.city}}<span ng-if="!source.editeur">.</span></span>
+<span ng-if="source.editeur"><span ng-if="source.city">:</span> {{source.editeur}}</span>

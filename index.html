@@ -15,8 +15,17 @@
   <body>
     <div ng-controller="ApaCtrl" class="container">
       <div id="page-header" class="page-header">
-        <h1>APA style</h1>
+        <h1>APA style <small>alpha</small></h1>
       </div>
+      <button ng-click="collapsesource=!collapsesource" class="btn">Source de la bibliographie</button>
+      <pre ng-if="collapsesource">
+        ==============
+        Solution de sauvegarde temporaire en attendant l'arrivée d'une sauvegarde en ligne :
+        copier coller le contenu de ce bloc dans un fichier texte.
+        Une fonctionnalité de récupération devrait être disponible sous peu.
+        ==============
+{{bibliography|json}}
+      </pre>
       <div class="well bg-info" ng-repeat="source in bibliography.sources">
         <div class="row">
           <div class="col-md-2">
@@ -31,32 +40,7 @@
             </select>
           </div>
         </div>
-        <!-- <pre>{{source|json}}</pre> -->
-        <div ng-switch="source.sourcetype">
-          <div ng-switch-when="book">
-            <book></book>
-          </div>
-          <div ng-switch-when="journal">
-            <journal></journal>
-          </div>
-          <div ng-switch-when="magazine">
-            <magazine></magazine>
-          </div>
-          <div ng-switch-when="website">
-            <website></website>
-          </div>
-          <div ng-switch-when="newspaper">
-            <newspaper></newspaper>
-          </div>
-          <div ng-switch-when="film">
-            <film></film>
-          </div>
-          <div ng-switch-default>
-            <p>
-              Une erreur est survenue
-            </p>
-          </div>
-        </div>
+        <source source=source source-type="source.sourcetype"></source>
       </div>
       <div class="row">
         <div class="form-group col-md-4">

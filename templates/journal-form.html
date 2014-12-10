@@ -1,0 +1,71 @@
+<div ng-repeat="contributor in source.contributors">
+  <div class="row">
+    <div class="form-group col-md-4">
+      <label for="contributor{{$index}}-prenom" class="required">Prénom</label>
+      <input type="text" class="form-control" id="contributor{{$index}}-prenom" ng-model="contributor.firstName" placeholder="Entrez ici le prénom de l'auteur {{$index + 1}}"/>
+    </div>
+  </div>
+  <div class="row">
+    <div class="form-group col-md-4">
+      <label for="contributor{{$index}}-nom" class="required">Nom</label>
+      <input type="text" class="form-control" id="contributor{{$index}}-nom" ng-model="contributor.lastName" placeholder="Entrez ici le nom de l'auteur {{$index + 1}}"/>
+    </div>
+    <div class="form-group col-md-1">
+      <button ng-click="source.removeAuthor($index)" class="btn btn-danger btn-xs"><span class="glyphicon glyphicon-remove"></span></button>
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="form-group col-md-4">
+    <button ng-click="source.addAuthor()" class="btn btn-success">Ajouter un auteur</button>
+  </div>
+</div>
+<div class="row">
+  <div class="form-group col-md-4">
+    <label for="annee" class="required">Année</label>
+    <input type="text" class="form-control" id="annee" ng-model="source.year" placeholder="Entrez ici l'année de parution"/>
+  </div>
+  <div class="form-group col-md-4">
+    <label for="secondaryTitle">Titre de l'article</label>
+    <input type="text" class="form-control" id="secondaryTitle" ng-model="source.secondaryTitle" placeholder="Entrez ici le titre de l'article"/>
+  </div>
+  <div class="form-group col-md-4">
+    <label for="primaryTitle" class="required">Titre du périodique</label>
+    <input type="text" class="form-control" id="primaryTitle" ng-model="source.primaryTitle" placeholder="Entrez ici titre du périodique"/>
+  </div>
+</div>
+<div class="row">
+  <div class="form-group col-md-4">
+    <label for="volume">Volume</label>
+    <input type="text" class="form-control" id="volume" ng-model="source.volume" placeholder="Entrez ici le volume"/>
+  </div>
+  <div class="form-group col-md-4">
+    <label for="numero">Numéro</label>
+    <input type="text" class="form-control" id="numero" ng-model="source.numero" placeholder="Entrez ici le numéro"/>
+  </div>
+  <div class="form-group col-md-2">
+    <label for="pages">Page de début</label>
+    <input type="text" class="form-control" id="pages" ng-model="source.startPage"/>
+  </div>
+  <div class="form-group col-md-2">
+    <label for="pages">Page de fin</label>
+    <input type="text" class="form-control" id="pages" ng-model="source.endPage"/>
+  </div>
+</div>
+<div class="row">
+  <div class="form-group col-md-4">
+    <input type="checkbox" id="hasdoi" ng-model="source.hasdoi"/>
+    <label for="hasdoi">Insérer un DOI (Digital Object Identifier)</label>
+    <input type="text" class="form-control" id="doi" ng-model="source.doi" placeholder="Entrez ici le DOI" ng-if="source.hasdoi"/>
+  </div>
+  <div class="form-group col-md-4" ng-if="source.hasdoi">
+    <input type="checkbox" id="doiasurl" ng-model="source.doiasurl"/>
+    <label for="doiasurl">DOI sous forme d'URL</label>
+  </div>
+</div>
+<div class="row">
+  <div class="form-group col-md-8">
+    <label for="annotations">Annotations</label>
+    <textarea type="text" class="form-control" id="annotations" ng-model="source.annotations" placeholder="Annotations"></textarea>
+  </div>
+</div>

@@ -1,0 +1,16 @@
+<span ng-repeat="contributor in source.contributors">
+  <span ng-if="!$first">,
+    <span ng-if="$last"> et </span>
+  </span>
+  <span>
+    <span ng-if="contributor.lastName">{{contributor.lastName}},</span>
+    <span ng-if="contributor.firstName"> {{contributor.firstName|initiales}}</span>
+  </span>
+</span>
+<span ng-if="source.year">({{source.year}})</span>
+<span ng-if="source.secondaryTitle"> {{source.secondaryTitle}}.</span>
+<em ng-if="source.primaryTitle"> {{source.primaryTitle}},</em>
+<em ng-if="source.volume"> {{source.volume}}</em>
+<span ng-if="source.numero">({{source.numero}})<span ng-if="source.startPage || source.endPage">, </span></span>
+<span ng-if="source.startPage">{{source.startPage}}</span><span ng-if="source.startPage && source.endPage">-</span><span ng-if="source.endPage">{{source.endPage}}.</span>
+<span ng-if="source.hasdoi"><span ng-if="source.doiasurl">http://dx.doi.org/</span><span ng-if="!source.doiasurl">doi: </span>{{source.doi}}</span>

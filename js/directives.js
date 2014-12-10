@@ -1,31 +1,27 @@
 apaStyle
-.directive('book', function() {
+.directive('source', function() {
   return {
-    templateUrl: 'templates/book.html'
-  };
+    restrict: 'E',
+    scope: {
+      source: '=',
+      sourceType: '='
+    },
+    templateUrl: 'templates/source.html'
+  }
 })
-.directive('journal', function() {
+.directive('sourceGeneration', function($http, $compile) {
   return {
-    templateUrl: 'templates/journal.html'
-  };
+    restrict: 'E',
+    templateUrl: function(elem, attr){
+      return 'templates/'+attr.typeTemplate+'-generate.html'
+    }
+  }
 })
-.directive('magazine', function() {
+.directive('sourceForm', function($http, $compile) {
   return {
-    templateUrl: 'templates/magazine.html'
-  };
-})
-.directive('website', function() {
-  return {
-    templateUrl: 'templates/website.html'
-  };
-})
-.directive('newspaper', function() {
-  return {
-    templateUrl: 'templates/newspaper.html'
-  };
-})
-.directive('film', function() {
-  return {
-    templateUrl: 'templates/film.html'
-  };
+    restrict: 'E',
+    templateUrl: function(elem, attr){
+      return 'templates/'+attr.typeTemplate+'-form.html'
+    }
+  }
 });

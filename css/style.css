@@ -1,7 +1,4 @@
-/*body {
-  background-color: #cff09e;
+.required:after {
+  content: " *";
+  color: red
 }
-
-.jumbotron {
-  background-color: #a8dba8;
-}*/
