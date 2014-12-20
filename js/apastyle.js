@@ -13,7 +13,7 @@ apaStyle.controller('ApaCtrl', ['$scope', function($scope) {
 	$scope.removeSource = function(id) {
 		$scope.bibliography.sources.remove(id);
 	};
-}])
+}]);
 
 var filtres = angular.module('filtres', []);
 filtres.filter('initiales', function() {

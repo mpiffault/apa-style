@@ -44,21 +44,21 @@
     <input type="text" class="form-control" id="numero" ng-model="source.numero" placeholder="Entrez ici le numéro"/>
   </div>
   <div class="form-group col-md-2">
-    <label for="pages">Page de début</label>
-    <input type="text" class="form-control" id="pages" ng-model="source.startPage"/>
+    <label for="pageDeb">Page de début</label>
+    <input type="text" class="form-control" id="pageDeb" ng-model="source.startPage"/>
   </div>
   <div class="form-group col-md-2">
-    <label for="pages">Page de fin</label>
-    <input type="text" class="form-control" id="pages" ng-model="source.endPage"/>
+    <label for="pageFin">Page de fin</label>
+    <input type="text" class="form-control" id="pageFin" ng-model="source.endPage"/>
   </div>
 </div>
 <div class="row">
   <div class="form-group col-md-4">
-    <input type="checkbox" id="hasdoi" ng-model="source.hasdoi"/>
-    <label for="hasdoi">Insérer un DOI (Digital Object Identifier)</label>
-    <input type="text" class="form-control" id="doi" ng-model="source.doi" placeholder="Entrez ici le DOI" ng-if="source.hasdoi"/>
+    <!--<input type="checkbox" id="hasdoi" ng-model="source.hasdoi"/>-->
+    <label for="doi">Insérer un DOI (Digital Object Identifier)</label>
+    <input type="text" class="form-control" id="doi" ng-model="source.doi" placeholder="Entrez ici le DOI" />
   </div>
-  <div class="form-group col-md-4" ng-if="source.hasdoi">
+  <div class="form-group col-md-4" ng-if="source.doi">
     <input type="checkbox" id="doiasurl" ng-model="source.doiasurl"/>
     <label for="doiasurl">DOI sous forme d'URL</label>
   </div>

@@ -13,4 +13,4 @@
 <em ng-if="source.volume"> {{source.volume}}</em>
 <span ng-if="source.numero">({{source.numero}})<span ng-if="source.startPage || source.endPage">, </span></span>
 <span ng-if="source.startPage">{{source.startPage}}</span><span ng-if="source.startPage && source.endPage">-</span><span ng-if="source.endPage">{{source.endPage}}.</span>
-<span ng-if="source.hasdoi"><span ng-if="source.doiasurl">http://dx.doi.org/</span><span ng-if="!source.doiasurl">doi: </span>{{source.doi}}</span>
+<span ng-if="source.doi"><span ng-if="source.doiasurl">http://dx.doi.org/</span><span ng-if="!source.doiasurl">doi: </span>{{source.doi}}</span>

@@ -1,12 +1,12 @@
 apaStyle
-.directive('source', function() {
+.directive('sourceGlobal', function() {
   return {
     restrict: 'E',
     scope: {
       source: '=',
       sourceType: '='
     },
-    templateUrl: 'templates/source.html'
+    templateUrl: 'templates/sourceGlobal.html'
   }
 })
 .directive('sourceGeneration', function($http, $compile) {

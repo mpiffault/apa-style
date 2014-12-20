@@ -30,7 +30,7 @@
         <div class="row">
           <div class="col-md-2">
             <label for="type-select-{{$index}}">Type</label>
-            <select id="type-select-{{$index}}" ng-model="source.sourcetype" class="form-control">
+            <select ng-model="source.sourcetype" id="type-select-{{$index}}" class="form-control">
               <option value="book">Livre</option>
               <option value="journal">Revue spécialisée</option>
               <option value="magazine">Magazine</option>
@@ -40,7 +40,8 @@
             </select>
           </div>
         </div>
-        <source source=source source-type="source.sourcetype"></source>
+        <!--suppress CheckTagEmptyBody -->
+        <source-global source=source source-type="source.sourcetype"/>
       </div>
       <div class="row">
         <div class="form-group col-md-4">
